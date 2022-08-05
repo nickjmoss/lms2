@@ -26,11 +26,6 @@ const TeamsTable = observer(({ model }) => {
 			dataIndex: 'num_of_players',
 			key: 'num_of_players',
 			sorter: true,
-			render: (text, record, index) => {
-				return (
-					<div>{model.testValue}</div>
-				)
-			}
 		},
 		{
 			title: 'Actions',
@@ -54,12 +49,17 @@ const TeamsTable = observer(({ model }) => {
 			}
 		},
 	]
+	const GoodTable = observer(Table);
 	return (
 		<>
-			<div>{model.testValue}</div>
-			<Table
+			<Button
+				type="danger"
+				icon={<DeleteOutlined />}
+				onClick={model.updateTeams}
+			/>
+			<GoodTable
 				columns={columns}
-				dataSource={[{ key: 1, team_name: "nick", coach_name: "nick moss", coach_phone: "1234567890", num_of_players: 10 }]}
+				dataSource={model.teams}
 			/>
 		</>
 	);
