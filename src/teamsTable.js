@@ -56,6 +56,7 @@ const TeamsTable = observer(({ model }) => {
 	]
 	return (
 		<>
+			<div>{model.testValue}</div>
 			<Table
 				columns={columns}
 				dataSource={[{ key: 1, team_name: "nick", coach_name: "nick moss", coach_phone: "1234567890", num_of_players: 10 }]}
