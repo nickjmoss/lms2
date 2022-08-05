@@ -1,0 +1,61 @@
+$primary: rgb(0, 206, 165);
+$primary-light: rgb(170, 236, 223);
+$danger-light: rgb(255, 152, 152);
+
+.callout {
+	width: 50%;
+	padding: 20px;
+	position: relative;
+	border-left: solid teal 3px;
+	background-color: $primary-light;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 0 0 10px 10px;
+	border-radius: 3px;
+}
+
+#schedule {
+	max-height: 150px;
+	overflow-y: scroll;
+}
+
+aside {
+	float: right;
+}
+
+.landing {
+	background-image: url('../assets/background.png');
+	background-repeat: no-repeat;
+	height: 100vh;
+	background-position: right bottom;
+	background-size: 50%;
+	position: relative;
+}
+
+.landing-welcome {
+	top: 25%;
+}
+
+#teams-table {
+	margin-top: 5%;
+}
+
+#teams {
+	margin-top: 100px;
+}
+
+#learn-more::before {
+	display: block;
+	content: " ";
+	margin-top: -100px;
+	height: 100px;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.btn-primary {
+	color: white !important;
+}
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';

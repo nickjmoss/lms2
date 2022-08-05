@@ -1,43 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Odin</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="./css/custom.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+			integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+		/>
+	</head>
+	<body>
+		<div id="main" class="container-xxl bg-white">
+			<div class="row">
+				<div class="col-12">
+					<nav
+						class="navbar navbar-light navbar-default navbar-expand-md fixed-top bg-white shadow-sm"
+					>
+						<div class="container-xxl">
+							<!-- Brand -->
+							<a href="#" class="navbar-brand fw-bold text-primary fs-1"
+								>Odin</a
+							>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+							<!-- Toggle button for mobile nav -->
+							<button
+								class="navbar-toggler"
+								type="button"
+								data-bs-toggle="collapse"
+								data-bs-target="#main-nav"
+								aria-expanded="false"
+								aria-label="Toggle navigation"
+							>
+								<span class="navbar-toggler-icon"></span>
+							</button>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+							<!-- Navbar links -->
+							<div
+								class="collapse navbar-collapse justify-content-start align-center ps-lg-5"
+								id="main-nav"
+							>
+								<ul
+									class="nav nav-pills nav-fill my-3 d-block d-md-flex"
+									role="tablist"
+								>
+									<li class="nav-item px-2">
+										<a href="#home" data-bs-toggle="pill" class="nav-link active">Home</a>
+									</li>
+									<li class="nav-item px-2">
+										<a href="#teams" data-bs-toggle="pill" class="nav-link">Teams</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+			<!-- Main Content -->
+			<div class="row">
+				<div class="col-12">
+					<div class="tab-content">
+						<!-- Home Content -->
+						<div class="container-xxl tab-pane active" id="home">
+							<div class="landing">
+								<div class="landing-welcome position-absolute h1 text-primary w-50">
+									Odin Basketball
+									<p class="text-secondary">
+										Welcome to the most premier basketball league in all of Utah.
+									</p>
+									<div class="d-flex flex-row justify-content-start w-100">
+										<div class="px-1">
+											<a href="#learn-more"><div class="btn btn-primary btn-lg">Learn More</div></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<p id="learn-more" class="text-primary h2">Welcome to the Odin Super League</p>
+							<p>
+								We are the premier basketball super league here in Utah. We have
+								been around for over 30 years and we strive to make the game of
+								basketball as competitive and fun as possible. Our league offers
+								kids K-12 the best opportunity possible to get exposure to the
+								more competitive side of basketball. Our super league attracts
+								eyes from top teams all around the nation who are looking to
+								recruit young talent to play for them.
+							</p>
+							<aside class="callout">
+								<i class="fa-solid fa-circle-exclamation fs-3 pe-3"></i>
+								Tryouts for the All-Star team begin on June 6th at 10AM. Only
+								players who were selected by their coaches may try out.
+							</aside>
+							<p>
+								The gyms that we use to host our games are of premium quality
+								and allow for very comfy seating for those coming to watch the
+								games. The referees we hire are highly trained professionals in
+								the game of basketball and help facilitate games as best as
+								possible.
+							</p>
+							<p>
+								Teams need to register in advance in order to be placed on the
+								league's roster. Our league tends to fill up very quickly so be
+								sure to have all of your team's info ready when you are about to
+								register. For more information on how to register your team and
+								the policies we have please call one of our amazing staff at
+								888-888-888.
+							</p>
+							<br />
+							<img
+								src="./assets/super-league1.jpeg"
+								class="d-flex justify-content-center container-xxl img-fluid w-50 mb-3"
+								alt="super-league-photo"
+							/>
+							<p>
+								At the end of the season there will be a playoff tournament.
+								There will be 3 total rounds and teams will play a 3 game
+								series. The top 6 teams with the best record at the end of the
+								season will be allowed to play in the tournament. There will not
+								be a losers bracket, as soon as a team is eliminated then they
+								are done for the season.
+							</p>
+							<p>
+								We look forward to having you play here at the Odin Super
+								League. Check out these highlights from the last season!
+							</p>
+							<div class="container-xxl d-flex justify-content-center mb-3">
+								<iframe
+									width="560"
+									height="315"
+									src="https://www.youtube.com/embed/WX_60RqHvS4"
+									title="YouTube video player"
+									frameborder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen
+								></iframe>
+							</div>
+						</div>
+
+						<!-- Teams Table -->
+						<div class="container-xxl tab-pane" id="teams">
+							<p class="text-primary h2">Teams</p>
+							<aside class="callout d-flex flex-column justify-content-start" style="min-width: 150px;"">
+								<div class="h4 text-black">Upcoming Games</div>
+								<div id="schedule">
+									<table class="table table-borderless">
+										<thead>
+											<tr>
+												<th scope="col">Date</th>
+												<th scope="col">Time</th>
+												<th scope="col">Location</th>
+												<th scope="col">Teams</th>
+											</tr>
+										</thead>
+										<tbody id="schedule-body"></tbody>
+									</table>
+								</div>
+							</aside>
+							<p>
+								Here is the list of teams and their information. If you would
+								like to see more information you can hover over the teams for
+								one second and see some stats about them.
+							</p>
+							<p>
+								The upcoming games for the month are located to the right. All the info about the date
+								time and location of each games is there. We invite all to come and watch the games but
+								you might want to get there early to save a good seat!
+							</p>
+							<p>
+								These are the teams that are going to be competing in this
+								season, take a look at them and see who you think is going to
+								win the championship.
+							</p>
+							<div id="liveAlertPlaceholder"></div>
+							<div id="root"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal -->
+		<div
+			class="modal fade"
+			id="exampleModal"
+			tabindex="-1"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Delete Team</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						You are about to delete this team. Are you sure about this?
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-bs-dismiss="modal"
+						>
+							Close
+						</button>
+						<button
+							type="button"
+							class="btn btn-danger"
+							data-bs-dismiss="modal"
+							id="liveAlertBtn"
+						>
+							Delete
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+		<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+		crossorigin="anonymous"
+		></script>
+		<script type="module" src="./js/app.js"></script>
+	</body>
+	<footer>
+		<!-- Footer -->
+		<div class="container-fluid bg-secondary h-100 d-flex justify-content-center text-white mt-lg-5">
+			<div class="container">
+				<div class="row text-light p-3">
+					<div class="col-12 text-center">
+						If you have any other questions feel free to reach out to us via our
+						phone number: 888-888-8888
+					</div>
+				</div>
+				<div class="row p-3">
+					<div class="col-4"></div>
+					<div class="col-4 text-center">
+						<a href="#" class="link-primary px-2">Home</a>
+						<a href="#" class="link-primary px-2">Teams</a>
+						<a href="#" class="link-primary px-2">Contact Us</a>
+					</div>
+					<div class="col-4"></div>
+				</div>
+				<div class="row p-3">
+					<div class="col-4"></div>
+					<div class="col-4 text-center">
+						Odin Super League Basketball<br />
+						123 Main Street<br />
+						Salt Lake City, UT 84092<br />
+					</div>
+					<div class="col-4"></div>
+				</div>
+			</div>
+		</div>
+	</footer>
 </html>
