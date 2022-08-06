@@ -1,9 +1,5 @@
-import { teamsList } from './teamsList.js';
-import { generateTableBody } from './generateTeamList.js';
-
 // Document ready function
 document.addEventListener('DOMContentLoaded', function (event) {
-	generateTableBody(teamsList);
 	$(function () {
 		$('[data-bs-toggle="popover"]').popover();
 	})

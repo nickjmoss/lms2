@@ -1,19 +1,36 @@
 import { observer } from "mobx-react-lite";
-import { Table, Button } from "antd";
+import { Table, Button, Input, Tooltip } from "antd";
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
+const { Search } = Input;
+
 const TeamsTable = observer(({ model }) => {
+
 	const columns = [
 		{
 			title: 'Team Name',
 			dataIndex: 'team_name',
 			key: 'team_name',
 			sorter: true,
+			render: (text, record, index) => {
+				return (
+					<Tooltip
+						title={`Wins: ${record.wins} Losses: ${record.losses} Place: ${record.place}`}
+					>
+						{text}</Tooltip>
+				)
+			}
 		},
 		{
-			title: 'Coach',
-			dataIndex: 'coach_name',
-			key: 'coach',
+			title: 'Coach First Name',
+			dataIndex: 'coach_first_name',
+			key: 'coach_first_name',
+			sorter: true,
+		},
+		{
+			title: 'Coach Last Name',
+			dataIndex: 'coach_last_name',
+			key: 'coach_last_name',
 			sorter: true,
 		},
 		{
@@ -33,33 +50,44 @@ const TeamsTable = observer(({ model }) => {
 			key: 'actions',
 			render: (text, record, index) => {
 				return (
-					<>
+					<div style={{ display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-around' }}>
 						<Button
 							type="primary"
 							icon={<EditOutlined />}
 							onClick={() => { model.setTest('tested') }}
+							style={{ padding: "5px" }}
 						/>
 						<Button
 							type="danger"
 							icon={<DeleteOutlined />}
-							onClick={() => { model.setTest('untested') }}
+							onClick={() => {
+								model.deleteTeam(record.team_id);
+							}}
+							style={{ padding: "5px" }}
 						/>
-					</>
+					</div>
 				)
 			}
 		},
 	]
-	const GoodTable = observer(Table);
 	return (
 		<>
-			<Button
-				type="danger"
-				icon={<DeleteOutlined />}
-				onClick={model.updateTeams}
-			/>
-			<GoodTable
+			<div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
+				<Search
+					placeholder="Search for a Team"
+					allowClear
+					onSearch={model.setSearchText}
+					style={{ width: 304, padding: '2% 0 2% 0' }}
+				/>
+			</div>
+			<Table
 				columns={columns}
 				dataSource={model.teams}
+				loading={model.isLoading}
+				onChange={(pagination, filters, sorter) => {
+					const { columnKey, order } = sorter;
+					model.setSorter(columnKey, order);
+				}}
 			/>
 		</>
 	);
