@@ -2,6 +2,10 @@ import { types, flow } from 'mobx-state-tree';
 import axios from 'axios';
 import { message } from 'antd';
 
+message.config({
+	top: 100
+})
+
 const { string, optional, model, maybeNull, number, array, boolean } = types;
 
 const HelloModel = model('HelloModel', {
