@@ -58,7 +58,7 @@ const TeamsTable = observer(({ model }) => {
 							icon={<EditOutlined />}
 							onClick={() => {
 								form.resetFields();
-								model.openModal(record);
+								model.openUpdateTeam(record);
 								form.setFieldsValue(model.modalContents);
 							}}
 							style={{ padding: "5px" }}
@@ -84,7 +84,7 @@ const TeamsTable = observer(({ model }) => {
 						type="primary"
 						onClick={() => {
 							form2.resetFields();
-							model.openModal2();
+							model.openCreateTeam();
 						}}
 					>
 						Create A Team
@@ -112,10 +112,10 @@ const TeamsTable = observer(({ model }) => {
 				visible={model.isModalVisible}
 				onOk={async () => {
 					const values = await form.validateFields();
-					model.submitForm(values);
+					model.submitUpdateTeam(values);
 					form.resetFields();
 				}}
-				onCancel={model.closeModal}
+				onCancel={model.closeUpdateTeam}
 				okText={"Update Team"}
 			>
 				<Form
@@ -178,10 +178,10 @@ const TeamsTable = observer(({ model }) => {
 				visible={model.isModal2Visible}
 				onOk={async () => {
 					const values = await form2.validateFields();
-					model.submitForm2(values);
+					model.submitCreateTeam(values);
 					form2.resetFields();
 				}}
-				onCancel={model.closeModal2}
+				onCancel={model.closeCreateTeam}
 				okText={"Create Team"}
 			>
 				<Form

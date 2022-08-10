@@ -8,7 +8,7 @@ message.config({
 
 const { string, optional, model, maybeNull, number, array, boolean } = types;
 
-const HelloModel = model('HelloModel', {
+const TeamsTableModel = model('TeamsTableModel', {
 	isLoading: maybeNull(boolean),
 	isModalVisible: optional(boolean, false),
 	isModal2Visible: optional(boolean, false),
@@ -86,7 +86,7 @@ const HelloModel = model('HelloModel', {
 			self.state.pagination = pagination;
 			self.fetchTeams();
 		},
-		openModal(obj) {
+		openUpdateTeam(obj) {
 			self.isModalVisible = true;
 			self.modalContents.team_id = obj.team_id;
 			self.modalContents.team_name = obj.team_name;
@@ -98,27 +98,27 @@ const HelloModel = model('HelloModel', {
 			self.modalContents.losses = obj.losses;
 			self.modalContents.place = obj.place;
 		},
-		closeModal() {
+		closeUpdateTeam() {
 			self.isModalVisible = false;
 		},
-		submitForm(obj) {
-			self.closeModal();
+		submitUpdateTeam(obj) {
+			self.closeUpdateTeam();
 			self.updateTeam({ ...obj, team_id: self.modalContents.team_id });
 		},
-		openModal2() {
+		openCreateTeam() {
 			self.isModal2Visible = true;
 		},
-		closeModal2() {
+		closeCreateTeam() {
 			self.isModal2Visible = false;
 		},
-		submitForm2(obj) {
-			self.closeModal2();
+		submitCreateTeam(obj) {
+			self.closeCreateTeam();
 			self.createTeam(obj);
 		},
 		fetchTeams: flow(function* fetchTeams() {
 			self.setIsLoading(true);
 			try {
-				const { data } = yield axios.get(`https://e6ry5i05te.execute-api.us-west-1.amazonaws.com/dev/teams_njm_su22?search=${self.state.searchText}&sortCol=${self.state.sorter.sortCol}&sortDir=${self.state.sorter.sortDir}&pageSize=${self.state.pagination.pageSize}&current=${self.state.pagination.current}`);
+				const { data } = yield axios.get(`https://e6ry5i05te.execute-api.us-west-1.amazonaws.com/prod/teams_njm_su22?search=${self.state.searchText}&sortCol=${self.state.sorter.sortCol}&sortDir=${self.state.sorter.sortDir}&pageSize=${self.state.pagination.pageSize}&current=${self.state.pagination.current}`);
 				self.state.pagination.total = data.count;
 				self.setCurrentTeams(data.data);
 				self.setIsLoading(false);
@@ -129,7 +129,7 @@ const HelloModel = model('HelloModel', {
 		createTeam: flow(function* createTeam(body) {
 			self.setIsLoading(true);
 			try {
-				const { data: { success } } = yield axios.post(`https://e6ry5i05te.execute-api.us-west-1.amazonaws.com/dev/teams_njm_su22`, JSON.stringify(body));
+				const { data: { success } } = yield axios.post(`https://e6ry5i05te.execute-api.us-west-1.amazonaws.com/prod/teams_njm_su22`, JSON.stringify(body));
 				if (success) {
 					message.success("Successfully created team");
 					self.fetchTeams();
@@ -145,7 +145,7 @@ const HelloModel = model('HelloModel', {
 		updateTeam: flow(function* updateTeam(body) {
 			self.setIsLoading(true);
 			try {
-				const { data: { success } } = yield axios.put(`https://e6ry5i05te.execute-api.us-west-1.amazonaws.com/dev/teams_njm_su22`, JSON.stringify(body));
+				const { data: { success } } = yield axios.put(`https://e6ry5i05te.execute-api.us-west-1.amazonaws.com/prod/teams_njm_su22`, JSON.stringify(body));
 				if (success) {
 					message.success("Successfully updated team");
 					self.fetchTeams();
@@ -161,7 +161,7 @@ const HelloModel = model('HelloModel', {
 		deleteTeam: flow(function* deleteTeam(id) {
 			self.setIsLoading(true);
 			try {
-				const { data: { success } } = yield axios.delete(`https://e6ry5i05te.execute-api.us-west-1.amazonaws.com/dev/teams_njm_su22?teamId=${id}`);
+				const { data: { success } } = yield axios.delete(`https://e6ry5i05te.execute-api.us-west-1.amazonaws.com/prod/teams_njm_su22?teamId=${id}`);
 				if (success) {
 					message.success("Successfully deleted team");
 					self.fetchTeams();
@@ -176,4 +176,4 @@ const HelloModel = model('HelloModel', {
 		})
 	}))
 
-export default HelloModel;
+export default TeamsTableModel;
